@@ -1,0 +1,154 @@
+:root {
+  --navy: #071a33;
+  --blue: #1f7ae0;
+  --light-blue: #eef5ff;
+  --light-gray: #f5f7fa;
+  --text: #172033;
+  --muted: #5f6b7a;
+  --white: #ffffff;
+  --border: #d9e1ea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--light-gray);
+  line-height: 1.7;
+}
+
+header {
+  background: linear-gradient(135deg, var(--navy), #102d4d);
+  color: var(--white);
+  padding: 64px 24px 48px;
+  text-align: center;
+}
+
+header h1 {
+  max-width: 900px;
+  margin: 0 auto 16px;
+  font-size: 42px;
+  line-height: 1.15;
+}
+
+header p {
+  max-width: 720px;
+  margin: 0 auto 28px;
+  color: #dce8f7;
+  font-size: 18px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 15px;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+section {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(7, 26, 51, 0.06);
+}
+
+h2 {
+  color: var(--navy);
+  margin-top: 0;
+  font-size: 28px;
+}
+
+p {
+  font-size: 17px;
+}
+
+a {
+  color: var(--blue);
+}
+
+.button-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--blue);
+  color: var(--white);
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.button.secondary {
+  background: var(--white);
+  color: var(--navy);
+  border: 1px solid var(--border);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: var(--light-blue);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--navy);
+}
+
+footer {
+  text-align: center;
+  padding: 28px 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 24px;
+  }
+}
