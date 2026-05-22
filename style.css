@@ -133,10 +133,19 @@ a {
 }
 
 footer {
+  max-width: 1040px;
+  margin: 16px auto 0;
+  padding: 30px 24px 46px;
   text-align: center;
-  padding: 28px 18px;
   color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+footer p {
+  margin: 4px 0;
   font-size: 14px;
+  line-height: 1.5;
+}
 }
 
 @media (max-width: 760px) {
