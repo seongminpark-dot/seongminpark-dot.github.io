@@ -229,3 +229,34 @@ sup a {
 sup a:hover {
   text-decoration: underline;
 }
+sup {
+  font-size: 0.75em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+sup a {
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+sup a:hover {
+  text-decoration: underline;
+}
+
+.notes-list {
+  max-width: 820px;
+}
+
+.notes-list li {
+  margin-bottom: 14px;
+}
+
+.notes-list a {
+  margin-left: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
