@@ -260,3 +260,24 @@ sup a:hover {
 html {
   scroll-behavior: smooth;
 }
+.page-navigation {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 18px;
+}
+
+.page-navigation h2 {
+  margin-bottom: 8px;
+}
+
+.page-navigation p {
+  margin: 0 auto 18px;
+  color: var(--muted);
+}
+
+.page-navigation .button-row {
+  justify-content: center;
+}
