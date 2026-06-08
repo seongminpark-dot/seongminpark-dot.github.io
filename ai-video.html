@@ -1,1 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Video Project | Seongmin Park</title>
 
+  <style>
+    :root {
+      --navy: #0b1220;
+      --dark: #111827;
+      --soft-dark: #1f2937;
+      --blue: #2563eb;
+      --light-blue: #dbeafe;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --light-gray: #f3f4f6;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--navy), #172554);
+      color: var(--white);
+      padding: 36px 8%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+
+    .site-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .hero {
+      max-width: 1050px;
+    }
+
+    .label {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.14);
+      color: var(--light-blue);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 20px;
+      max-width: 900px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      color: #dbeafe;
+      font-size: 1.08rem;
+    }
+
+    main {
+      width: min(1120px, 88%);
+      margin: 0 auto;
+      padding: 56px 0 80px;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    .video-card {
+      background: var(--light-gray);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 14px 38px rgba(15, 23, 42, 0.08);
+    }
+
+    video {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      background: #000000;
+    }
+
+    .caption {
+      color: var(--gray);
+      font-size: 0.94rem;
+      margin-top: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .card strong {
+      color: var(--blue);
+    }
+
+    .highlight {
+      background: var(--light-blue);
+      border-left: 5px solid var(--blue);
+      padding: 22px;
+      border-radius: 14px;
+      margin-top: 18px;
+    }
+
+    .prompt-box {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 18px;
+      padding: 24px;
+      overflow-x: auto;
+      font-size: 0.93rem;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      border: 1px solid #1e293b;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 16px;
+      align-items: start;
+      background: var(--light-gray);
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 28px 8%;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 850px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="site-name">Seongmin Park</div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="youtube-analysis.html">YouTube Analysis</a>
+        <a href="essay.html">Expertise Essay</a>
+        <a href="logo.html">Logo</a>
+        <a href="ai-video.html">AI Video</a>
+        <a href="about.html">About</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="label">EST 240 AI Video Project</div>
+      <h1>Simulation, Attention, and Human Presence</h1>
+      <p>
+        This AI generated video explores how mediated technologies can shape perception,
+        attention, and identity. The central visual contrast shows a classroom where most
+        students remain inside a simulated visual experience, while one student removes the
+        device and faces reality directly.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="video-card">
+        <video controls preload="metadata">
+          <source src="ai-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <p class="caption">
+          Final AI video project. The video uses a classroom setting, VR headsets, and a direct
+          gaze toward the camera to create a visual metaphor about simulation and human awareness.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Project Overview</h2>
+      <p>
+        The video presents a modern university classroom where nearly every student wears a
+        VR headset. The setting appears ordinary, but the repeated headsets create an unsettling
+        pattern. The central student removes the headset and looks directly toward the viewer.
+        This single gesture becomes the main visual turning point of the video.
+      </p>
+
+      <p>
+        The project connects to visual rhetoric by using contrast, framing, and symbolic objects
+        to communicate an argument without written text. The headset becomes a sign of mediated
+        experience, while the uncovered face represents direct human presence.
+      </p>
+
+      <div class="highlight">
+        <p>
+          <strong>Main idea:</strong> Technology can create powerful simulated experiences, but it
+          can also separate people from direct human reality.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Final Prompt</h2>
+
+      <div class="prompt-box">Create a single continuous 5 second ultra realistic cinematic video.
+
+Do not create multiple scenes. Do not create a split screen. Do not create a grid. Do not create storyboard panels. Do not add any text. Do not make anyone speak.
+
+The first frame must immediately show the main visual symbol.
+
+Inside a modern university lecture hall, many students sit silently at desks in several rows. Every student except one is wearing a plain white VR headset. They sit completely still, facing forward, with their eyes covered by the devices. Cold blue light softly reflects from the headsets onto their faces and desks.
+
+At the center of the frame, one university student has removed the VR headset. The student holds the headset in both hands on the desk and looks directly toward the camera with a quiet, serious, human expression. Warm natural light from a window touches only this student’s face, creating a strong contrast against the cold blue light around everyone else.
+
+The camera slowly pushes in toward the student who removed the headset. All other students remain frozen and disconnected behind them. The final frame holds on the student’s face, surrounded by rows of motionless students still wearing VR headsets.
+
+The visual message is clear: technology can create powerful simulated worlds, but it can also separate people from direct human reality.
+
+Ultra realistic cinematography, modern university classroom, strong visual metaphor, dramatic contrast between cold blue device light and warm human light, natural human faces, realistic anatomy, professional film lighting, shallow depth of field, serious emotional atmosphere, clear symbolic composition.
+
+No walking. No talking. No open mouths. No dialogue. No words. No letters. No signs. No subtitles. No captions. No logos. No watermark. No fantasy magic. No holograms. No floating particles. No cartoon style. No anime style. No distorted faces. No extra fingers. No broken hands. No horror. No blood. No injury.</div>
+    </section>
+
+    <section>
+      <h2>Visual Rhetorical Analysis</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Denotation</h3>
+          <p>
+            The video shows students in a university classroom. Most students wear VR headsets,
+            while one student removes the headset and looks forward.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Connotation</h3>
+          <p>
+            The covered eyes suggest that technology can control what people see and experience.
+            The uncovered face suggests awareness, individuality, and direct presence.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Mise en Scène</h3>
+          <p>
+            The classroom, desks, headsets, lighting, and body positions are arranged to create
+            a contrast between mediated experience and human reality.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Simulation</h3>
+          <p>
+            The VR headsets represent simulated worlds. The students appear physically present,
+            but their attention is directed elsewhere.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Gaze</h3>
+          <p>
+            The central student looks directly toward the viewer. This direct gaze breaks the
+            pattern of passive viewing and asks the viewer to recognize the human subject.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Visual Contrast</h3>
+          <p>
+            The cold light around the headset users contrasts with the warmer light on the
+            central student. This lighting difference reinforces the video’s message.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Production Process</h2>
+
+      <div class="process-list">
+        <div class="process-item">
+          <div class="number">1</div>
+          <div>
+            <h3>Concept Development</h3>
+            <p>
+              The project began with the question of how technology changes human attention.
+              The final concept focused on simulation because VR headsets create a clear visual
+              symbol that can be understood immediately.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="number">2</div>
+          <div>
+            <h3>Prompt Refinement</h3>
+            <p>
+              Earlier prompts were too broad and produced unclear results. The final prompt was
+              narrowed to one location, one symbolic object, and one clear visual contrast.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="number">3</div>
+          <div>
+            <h3>Visual Hook</h3>
+            <p>
+              The main hook is visible from the beginning: many students wear VR headsets, while
+              one student removes the headset and reveals a human face.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="number">4</div>
+          <div>
+            <h3>Final Selection</h3>
+            <p>
+              The selected video was chosen because it clearly shows the classroom, the headset
+              pattern, the central human figure, and the symbolic contrast between simulation
+              and reality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Reflection</h2>
+
+      <p>
+        This AI video demonstrates both the creative potential and the limitations of generative
+        video tools. The prompt had to be revised several times because abstract concepts such as
+        identity, alienation, and attention were difficult for the model to represent directly.
+        The final version became stronger when the idea was translated into a concrete visual
+        symbol: the VR headset.
+      </p>
+
+      <p>
+        The result shows how visual rhetoric can work through simple but powerful contrasts.
+        A covered face and an uncovered face communicate the central message more effectively
+        than a long explanation. The video therefore uses composition, lighting, and symbolic
+        objects to ask whether technology expands human perception or distances people from
+        shared reality.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>EST 240 Visual Rhetoric and Information Technology | Seongmin Park</p>
+  </footer>
+</body>
+</html>
