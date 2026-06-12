@@ -410,3 +410,53 @@ html {
     grid-template-columns: 1fr;
   }
 }
+.button-row,
+.explore-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.btn,
+.content-card a,
+.card a,
+.explore-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 44px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid #d8e1ef;
+  background: #ffffff;
+  color: #0b1220;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+}
+
+.btn.primary,
+.content-card a:first-of-type,
+.card a:first-of-type {
+  background: #2d7fe5;
+  border-color: #2d7fe5;
+  color: #ffffff;
+}
+
+.btn.secondary {
+  background: #ffffff;
+  color: #0b1220;
+  border-color: #d8e1ef;
+}
+
+.btn:hover,
+.content-card a:hover,
+.card a:hover,
+.explore-links a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+  text-decoration: none;
+}
